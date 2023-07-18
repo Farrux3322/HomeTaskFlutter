@@ -2,9 +2,15 @@ import 'package:default_project/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'local/storage_repository.dart';
+
 
 Future<void> main()async {
   runApp(const MyApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await StorageRepository.getInstance();
 }
 
 class MyApp extends StatelessWidget {

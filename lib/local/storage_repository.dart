@@ -28,6 +28,7 @@ class StorageRepository {
 
   static Future<bool>? putList(String key, List<String> value) {
     debugPrint('writing $value');
+    print('writing $value');
     if (_preferences == null) return null;
     return _preferences!.setStringList(key, value);
   }
