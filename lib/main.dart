@@ -1,4 +1,5 @@
 import 'package:default_project/ui/home/home_screen.dart';
+import 'package:default_project/ui/home/widgets/home_task.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnimationScreen(),
+      home: HomeTask(),
     );
   }
 }
