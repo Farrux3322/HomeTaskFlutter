@@ -1,29 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ChangeLocation extends StatefulWidget {
-  const ChangeLocation({Key? key}) : super(key: key);
+class ChangeLocationScreen extends StatefulWidget {
+  const ChangeLocationScreen({Key? key}) : super(key: key);
 
   @override
-  State<ChangeLocation> createState() => _ChangeLocationState();
+  State<ChangeLocationScreen> createState() => _ChangeLocationScreenState();
 }
 
-class _ChangeLocationState extends State<ChangeLocation> {
+class _ChangeLocationScreenState extends State<ChangeLocationScreen> {
   int selected = 0;
   double containerX = 0;
   double containerY = 0;
-
-  final List<Color> colors = [
-    Colors.green,
-    Colors.orange,
-  ];
-
-  final List<String> text = ['Green', 'Orange'];
-
-  void _changeColor() {
-    setState(() {
-      selected = (selected + 1) % colors.length;
-    });
-  }
 
   void _changePosition(String direction) {
     setState(() {
@@ -70,22 +57,12 @@ class _ChangeLocationState extends State<ChangeLocation> {
                       height: 150,
                       width: 150,
                       curve: Curves.linear,
-                      duration: const Duration(seconds: 1),
-                      transform: Matrix4.translationValues(containerX, containerY, 1),
+                      duration: const Duration(seconds: 2),
+                      transform:
+                          Matrix4.translationValues(containerX, containerY, 1),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: colors[selected],
-                      ),
-                      child: Center(
-                        child: Text(
-                          text[selected],
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.black),
                     ),
                   ),
                 ],
@@ -97,28 +74,28 @@ class _ChangeLocationState extends State<ChangeLocation> {
           ),
           FloatingActionButton(
             onPressed: () => _changePosition('up'),
-            backgroundColor: Colors.blue,
-            child: Icon(Icons.keyboard_arrow_up, size: 50),
+            backgroundColor: Colors.black,
+            child: Icon(Icons.keyboard_arrow_up, size: 40),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               FloatingActionButton(
                 onPressed: () => _changePosition('left'),
-                backgroundColor: Colors.blue,
-                child: Icon(Icons.keyboard_arrow_left, size: 50),
+                backgroundColor: Colors.black,
+                child: Icon(Icons.keyboard_arrow_left, size: 40),
               ),
               FloatingActionButton(
                 onPressed: () => _changePosition('right'),
-                backgroundColor: Colors.blue,
-                child: Icon(Icons.keyboard_arrow_right, size: 50),
+                backgroundColor: Colors.black,
+                child: Icon(Icons.keyboard_arrow_right, size: 40),
               ),
             ],
           ),
           FloatingActionButton(
             onPressed: () => _changePosition('down'),
-            backgroundColor: Colors.blue,
-            child: Icon(Icons.keyboard_arrow_down, size: 50),
+            backgroundColor: Colors.black,
+            child: Icon(Icons.keyboard_arrow_down, size: 40),
           ),
         ],
       ),

@@ -27,7 +27,7 @@ class _ChangeColorScreenState extends State<ChangeColorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black,
         title: const Text("Change color"),
         centerTitle: true,
       ),
@@ -39,24 +39,27 @@ class _ChangeColorScreenState extends State<ChangeColorScreen> {
             child: Center(
               child: Stack(
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: AnimatedContainer(
-                      height: 150,
-                      width: 150,
-                      curve: Curves.linear,
-                      duration: const Duration(seconds: 2),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: colors[selected],
-                      ),
-                      child: Center(
-                        child: Text(
-                          text[selected],
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                  Container(
+                    decoration: BoxDecoration(border: Border.all(color: Colors.black),shape: BoxShape.circle),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: AnimatedContainer(
+                        height: 150,
+                        width: 150,
+                        curve: Curves.linear,
+                        duration: const Duration(seconds: 2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: colors[selected],
+                        ),
+                        child: Center(
+                          child: Text(
+                            text[selected],
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -72,7 +75,7 @@ class _ChangeColorScreenState extends State<ChangeColorScreen> {
           FloatingActionButton(
             onPressed: _changeColor,
             backgroundColor: Colors.black,
-            child: Icon(Icons.back_hand_rounded, size: 40),
+            child: Icon(Icons.color_lens, size: 40),
           ),
         ],
       ),

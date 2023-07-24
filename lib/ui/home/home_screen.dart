@@ -38,9 +38,9 @@ class AnimationScreen extends StatelessWidget {
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                   onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return ChangeLocation();
-                    }));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    //   return ChangeLocation();
+                    // }));
                   },
                   child: Text('Change location')),
             ),

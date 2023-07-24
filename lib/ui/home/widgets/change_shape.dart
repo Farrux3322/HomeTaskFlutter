@@ -41,7 +41,7 @@ class _ChangeShapeScreenState extends State<ChangeShapeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black,
         title: const Text("Change shape"),
         centerTitle: true,
       ),
@@ -49,32 +49,35 @@ class _ChangeShapeScreenState extends State<ChangeShapeScreen>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 350,
+            height: 400,
             child: Center(
               child: Stack(
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: AnimatedContainer(
-                      height: selected == 0
-                          ? 100
-                          : selected == 1
-                              ? 300
-                              : selected == 2
-                                  ? 200
-                                  : 350,
-                      width: selected == 0
-                          ? 100
-                          : selected == 1
-                              ? 50
-                              : selected == 2
-                                  ? 250
-                                  : 150,
-                      curve: Curves.linear,
-                      duration: const Duration(seconds: 2),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: colorAnimation.value,
+                  Container(
+                    decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: AnimatedContainer(
+                        height: selected == 0
+                            ? 100
+                            : selected == 1
+                                ? 300
+                                : selected == 2
+                                    ? 200
+                                    : 350,
+                        width: selected == 0
+                            ? 100
+                            : selected == 1
+                                ? 50
+                                : selected == 2
+                                    ? 250
+                                    : 150,
+                        curve: Curves.linear,
+                        duration: const Duration(seconds: 2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: colorAnimation.value,
+                        ),
                       ),
                     ),
                   ),
@@ -98,7 +101,10 @@ class _ChangeShapeScreenState extends State<ChangeShapeScreen>
               }
             },
             backgroundColor: Colors.black,
-            child:  Icon(Icons.back_hand_rounded, size: 40),
+            child: Icon(
+              Icons.color_lens,
+              size: 40,
+            ),
           ),
         ],
       ),

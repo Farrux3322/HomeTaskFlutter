@@ -41,7 +41,7 @@ class _TurnToRightState extends State<TurnToRight>
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black,
         title: const Text("Turn to Right"),
       ),
       body: Center(
@@ -50,9 +50,8 @@ class _TurnToRightState extends State<TurnToRight>
             child: Container(
               height: 150,
               width: 150,
-              color: Colors.blue,
-            )
-        ),
+              decoration: BoxDecoration(border: Border.all(color: Colors.black,)),
+            )),
       ),
     );
   }
