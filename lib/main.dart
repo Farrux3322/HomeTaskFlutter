@@ -1,10 +1,27 @@
+import 'package:default_project/data/network/user_repository.dart';
+import 'package:default_project/providers/user_provider.dart';
 import 'package:default_project/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
+import 'data/network/api_provider.dart';
 
-Future<void> main()async {
-  runApp(const MyApp());
+Future<void> main() async {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(
+            userRepository: UserRepository(
+              apiProvider: ApiProvider(),
+            ),
+          ),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +35,6 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
-
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
