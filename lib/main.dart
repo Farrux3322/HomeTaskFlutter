@@ -1,10 +1,13 @@
+import 'package:default_project/providers/calculator_provider.dart';
 import 'package:default_project/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:provider/provider.dart';
 
 Future<void> main()async {
-  runApp(const MyApp());
+  runApp( MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context)=>CalculatorProvider(),lazy: true,)
+  ],child: const MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
