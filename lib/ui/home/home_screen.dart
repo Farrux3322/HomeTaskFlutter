@@ -14,6 +14,8 @@ class HomeScreen extends StatelessWidget {
 
     TextEditingController number1 = TextEditingController();
     TextEditingController number2 = TextEditingController();
+    FocusNode number1FocusNode = FocusNode();
+    FocusNode number2FocusNode = FocusNode();
 
 
     return Scaffold(
@@ -38,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                   builder: (context,answer,child){
                     return answer.getAnswer() !=0?
                     Text(
-                      answer.getAnswer().toString(),
+                      answer.getAnswer().toString(),textAlign: TextAlign.center,
                       style: const TextStyle(fontSize: 45,color: Colors.white),
                     ) : const SizedBox();
                   },
@@ -46,6 +48,12 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 100,),
               TextField(
+                focusNode: number1FocusNode,
+                onChanged: (number1){
+                  if(number1.length==5){
+                    number1FocusNode.unfocus();
+                  }
+                },
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                   LengthLimitingTextInputFormatter(5),
@@ -61,6 +69,12 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 40,),
               TextField(
+                focusNode: number2FocusNode,
+                onChanged: (number2){
+                  if(number2.length==5){
+                    number2FocusNode.unfocus();
+                  }
+                },
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                   LengthLimitingTextInputFormatter(5),
