@@ -1,5 +1,5 @@
-
-import 'package:default_project/ui/home/home_screen.dart';
+import 'package:default_project/provider/counter_provider.dart';
+import 'package:default_project/ui/home/tab_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -10,11 +10,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => UserProvider(
-            userRepository: UserRepository(
-              apiProvider: ApiProvider(),
-            ),
-          ),
+          create: (context) => CounterProvider(counter: 0),
         ),
       ],
       child: const MyApp(),
@@ -39,7 +35,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
             useMaterial3: true,
           ),
-          home: const HomeScreen(),
+          home:  TabBoxScreen(),
         );
       },
     );
