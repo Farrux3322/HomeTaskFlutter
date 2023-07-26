@@ -1,21 +1,44 @@
+import 'package:default_project/provider/counter_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class CounterScreen extends StatelessWidget {
+  const CounterScreen({Key? key}) : super(key: key);
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    print("BUILDING HOME SCREEEN");
+
+    var provider = Provider.of<CounterProvider>(context,listen: false);
+
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.teal,
-        title: const Text("Default Project"),
-        centerTitle: true,
+        title: Text("Deafult screen"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Consumer<CounterProvider>(
+              builder: (context,counterProvider,child){
+                return Text(
+                  counterProvider.getCounter.toString(),
+                  style: const TextStyle(fontSize: 45),
+                );
+              },
+            ),
+          ),
+          TextButton(
+              onPressed: () {
+                provider.increment();
+              },
+              child: Text("Increment")),
+          TextButton(
+              onPressed: () {
+                provider.decrement();
+              },
+              child: Text("Decrement")),
+        ],
       ),
     );
   }
