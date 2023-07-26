@@ -12,7 +12,10 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: const Text("Users info",style: TextStyle(color: Colors.white),),
+        title: const Text(
+          "Users info",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: Column(
@@ -29,13 +32,31 @@ class HomeScreen extends StatelessWidget {
                         ...List.generate(provider.users!.length, (index) {
                           return Container(
                             margin: const EdgeInsets.all(18),
-                            color: Colors.blue,
+                            decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(16)),
                             child: ListTile(
-                              title: Text(provider.users![index].title,style: const TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w700),),
-                              subtitle:
-                                  Text("Id: ${provider.users![index].id.toString()}",style:const TextStyle(color: Colors.white,fontSize: 22,fontWeight: FontWeight.w700),),
-                              trailing:
-                                  Text("User Id: ${provider.users![index].userId.toString()}",style: const TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w700),),
+                              title: Text(
+                                provider.users![index].title,
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              subtitle: Text(
+                                "Id: ${provider.users![index].id.toString()}",
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              trailing: Text(
+                                "User Id: ${provider.users![index].userId.toString()}",
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
                           );
                         })
