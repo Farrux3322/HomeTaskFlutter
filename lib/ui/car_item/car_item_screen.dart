@@ -56,7 +56,7 @@ class _CarItemScreenState extends State<CarItemScreen> {
                 return CachedNetworkImage(
                   imageUrl: picUrl,
                   placeholder: (context, url) => CupertinoActivityIndicator(radius: 20,),
-                  errorWidget: (context, url, error) => Icon(Icons.error,size: 50,),
+                  errorWidget: (context, url, error) => Icon(Icons.car_crash_sharp,size: 50,),
                 );
               }).toList()
                   : [],

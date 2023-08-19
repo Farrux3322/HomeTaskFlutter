@@ -15,6 +15,7 @@ class ApiService {
     _init();
   }
 
+
   _init() {
     dio.interceptors.add(
       InterceptorsWrapper(

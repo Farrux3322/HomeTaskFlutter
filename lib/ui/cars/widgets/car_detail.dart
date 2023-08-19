@@ -27,7 +27,7 @@ class CarDetail extends StatelessWidget {
               width: 250,
               height: 250,
               placeholder: (context, url) => CupertinoActivityIndicator(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+              errorWidget: (context, url, error) => Icon(Icons.car_crash_sharp),
             ),
             const SizedBox(height: 10,),
             Text("Price : ${car.averagePrice} \$",style: const TextStyle(fontSize: 24),),

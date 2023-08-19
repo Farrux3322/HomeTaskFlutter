@@ -77,7 +77,7 @@ class _CarsScreenState extends State<CarsScreen> {
                         width: 50,
                         height: 50,
                         placeholder: (context, url) => CupertinoActivityIndicator(),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
+                        errorWidget: (context, url, error) => Icon(Icons.car_crash_sharp),
                       ),
 
                     ),

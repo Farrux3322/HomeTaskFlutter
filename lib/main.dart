@@ -1,3 +1,4 @@
+import 'package:default_project/ui/superheros/superheros_screen.dart';
 import 'package:default_project/ui/tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
