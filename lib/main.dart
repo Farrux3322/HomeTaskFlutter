@@ -1,33 +1,49 @@
-import 'package:default_project/ui/home/home_screen.dart';
+import 'package:default_project/cubits/login/login_cubit.dart';
+import 'package:default_project/cubits/math/math_cubit.dart';
+import 'package:default_project/cubits/tab/tab_cubit.dart';
+import 'package:default_project/ui/tab/math/math_screen.dart';
+import 'package:default_project/ui/tab/tab_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 
-Future<void> main()async {
-  runApp(const MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const App());
+}
+
+class App extends StatelessWidget {
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(providers: [
+      BlocProvider(
+        create: (_) => MathCubit(),
+        lazy: false,
+      ),
+      BlocProvider(
+        create: (_) => LoginCubit(),
+        lazy: false,
+      ),
+      BlocProvider(
+        create: (_) => TabCubit(),
+        lazy: false,
+      ),
+
+    ], child: MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (BuildContext context, Widget? child) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
 
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-            useMaterial3: true,
-          ),
-          home: const HomeScreen(),
-        );
-      },
+      home: TabScreen(),
     );
   }
 }
