@@ -9,6 +9,7 @@ class MathCubit extends Cubit<MathTemp> {
   }
 
   String s = "";
+  ,
 
   void initialB(int b) {
     emit(state.copyWith(b: b));
