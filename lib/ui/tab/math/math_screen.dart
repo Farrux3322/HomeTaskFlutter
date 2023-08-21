@@ -64,9 +64,7 @@ class _MathScreenState extends State<MathScreen> {
             BlocBuilder<MathCubit, MathTemp>(builder: (context, state) {
               return Center(
                 child: Text(
-                  context.read<MathCubit>().state.answer != 1
-                      ? context.read<MathCubit>().state.answer.toString()
-                      : "",
+                  context.read<MathCubit>().state.formatAnswer,
                   style: const TextStyle(fontSize: 32),
                 ),
               );
