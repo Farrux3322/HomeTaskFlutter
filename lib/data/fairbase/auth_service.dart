@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
-  Future<UniversalData> signUpUser({
+  static Future<UniversalData> signUpUser({
     required String email,
     required String password,
   }) async {
@@ -21,7 +21,7 @@ class AuthService {
     }
   }
 
-  Future<UniversalData> loginUser({
+  static Future<UniversalData> loginUser({
     required String email,
     required String password,
   }) async {
@@ -39,7 +39,7 @@ class AuthService {
     }
   }
 
-  Future<UniversalData> logOutUser() async {
+  static Future<UniversalData> logOutUser() async {
     try {
       await FirebaseAuth.instance.signOut();
       return UniversalData(data: "User Logged Out");
@@ -50,7 +50,7 @@ class AuthService {
     }
   }
 
-  Future<UniversalData> signInWithGoogle() async {
+  static Future<UniversalData> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 

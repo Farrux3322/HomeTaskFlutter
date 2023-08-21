@@ -19,4 +19,15 @@ class MathCubit extends Cubit<MathTemp> {
     }
     emit(state.copyWith(answer: c));
   }
+
+  String formatAnswer(){
+    String s = "";
+    for(int i = 0;i>state.answer.toString().length;i++){
+      if(i%3==0){
+        s+=" ";
+      }
+      s+= state.answer.toString()[i];
+    }
+    return s;
+  }
 }
