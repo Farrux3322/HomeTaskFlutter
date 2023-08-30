@@ -1,8 +1,7 @@
 class AppImages{
-  // png
-  static const String america="assets/images/america.png";
+  //png
+  // static const String bicycle = "assets/images/bicycle.png";
 
-
-  // svg
-  static const String back="assets/svg/back.svg";
+  //svg
+  // static const String react = "assets/svg/react.svg";
 }

@@ -1,4 +1,4 @@
-enum FormStatus {
+enum FormStatus{
   pure,
   loading,
   error,

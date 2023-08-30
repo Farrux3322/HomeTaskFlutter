@@ -1,6 +1,7 @@
-import 'package:default_project/data/models/form_status.dart';
-import 'package:default_project/data/models/user_model.dart';
 import 'package:equatable/equatable.dart';
+
+import '../models/form_status.dart';
+import '../models/user_model.dart';
 
 class UsersState extends Equatable {
   const UsersState({
@@ -25,5 +26,9 @@ class UsersState extends Equatable {
       );
 
   @override
-  List<Object?> get props => [status, statusText, users];
+  List<Object?> get props => [
+        status,
+        users,
+        statusText,
+      ];
 }
